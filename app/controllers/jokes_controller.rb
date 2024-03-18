@@ -1,6 +1,6 @@
 class JokesController < ApplicationController
   def index
-    @jokes = Joke.all
+    @jokes = Joke.page(params[:page]).per(10)
   end
 
   def show
