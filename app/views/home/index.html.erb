@@ -1,15 +1,32 @@
-<h1>Welcome to the Jokes and Facts App!</h1>
+<div class="container mt-5">
+  <h1 class="text-center display-4 mb-5">Welcome to the Jokes and Facts App!</h1>
 
-<div>
-  <h2>Random Jokes</h2>
-  <% @random_jokes.each do |joke| %>
-    <p><%= joke.setup %> - <%= joke.punchline %></p>
-  <% end %>
-</div>
+  <div class="row justify-content-center mb-4">
+    <div class="col-lg-8">
+      <h2 class="mb-4">Random Jokes</h2>
+      <% @random_jokes.each do |joke| %>
+        <div class="card shadow-sm mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Joke</h5>
+            <p class="card-text"><%= joke.setup %></p>
+            <p class="card-text text-muted"><%= joke.punchline %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-<div>
-  <h2>Random Facts</h2>
-  <% @random_facts.each do |fact| %>
-    <p><%= fact.fact %></p>
-  <% end %>
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h2 class="mb-4">Random Facts</h2>
+      <% @random_facts.each do |fact| %>
+        <div class="card shadow-lg mb-3">
+          <div class="card-header">Did You Know?</div>
+          <div class="card-body">
+            <p class="card-text"><%= fact.fact %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

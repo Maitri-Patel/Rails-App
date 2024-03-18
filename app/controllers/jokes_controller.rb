@@ -1,9 +1,14 @@
 class JokesController < ApplicationController
   def index
-    @jokes = Joke.page(params[:page]).per(10)
+    if params[:search].present?
+      @jokes = Joke.where("setup LIKE ? OR punchline LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    else
+      @jokes = Joke.all
+    end
   end
 
   def show
     @joke = Joke.find(params[:id])
   end
 end
+

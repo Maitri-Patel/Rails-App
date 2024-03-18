@@ -1,9 +1,29 @@
-<h1>Jokes Collection</h1>
-<ul>
-  <% @jokes.each do |joke| %>
-    <li>
-      <%= link_to "#{joke.setup} - #{joke.punchline}", joke_path(joke) %>
-    </li>
-  <% end %>
-</ul>
-<%= paginate @jokes %>
+<!-- app/views/jokes/index.html.erb -->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= form_with(url: jokes_path, method: :get, local: true) do |form| %>
+        <div class="input-group mb-3">
+          <%= form.text_field :search, value: params[:search], placeholder: "Search jokes...", class: "form-control" %>
+          <div class="input-group-append">
+            <%= form.submit "Search", class: "btn btn-outline-secondary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @jokes.each do |joke| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <p class="card-text"><%= joke.setup %></p>
+            <p class="card-text"><%= joke.punchline %></p>
+            <%= link_to "View", joke_path(joke), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
