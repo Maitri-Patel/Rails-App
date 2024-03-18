@@ -1,0 +1,15 @@
+<h1>Welcome to the Jokes and Facts App!</h1>
+
+<div>
+  <h2>Random Jokes</h2>
+  <% @random_jokes.each do |joke| %>
+    <p><%= joke.setup %> - <%= joke.punchline %></p>
+  <% end %>
+</div>
+
+<div>
+  <h2>Random Facts</h2>
+  <% @random_facts.each do |fact| %>
+    <p><%= fact.fact %></p>
+  <% end %>
+</div>

@@ -1,0 +1,6 @@
+<h1>All Facts</h1>
+<ul>
+  <% @facts.each do |fact| %>
+    <li><%= link_to fact.fact, fact_path(fact) %></li>
+  <% end %>
+</ul>
