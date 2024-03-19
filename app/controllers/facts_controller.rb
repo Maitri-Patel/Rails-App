@@ -1,13 +1,14 @@
 class FactsController < ApplicationController
-  # Display a paginated list of facts
   def index
-    @facts = Fact.page(params[:page]).per(10)
+    if params[:search].present?
+      # Apply the search filter before pagination
+      @facts = Fact.where("fact LIKE ?", "%#{params[:search]}%").page(params[:page]).per(10)
+    else
+      @facts = Fact.order(created_at: :desc).page(params[:page]).per(10)
+    end
   end
 
-  # Display a single fact detail
   def show
     @fact = Fact.find(params[:id])
   end
 end
-
-

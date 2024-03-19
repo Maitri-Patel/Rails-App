@@ -5,7 +5,6 @@ class JokesController < ApplicationController
       @jokes = Joke.where("setup LIKE ? OR punchline LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
                    .page(params[:page]).per(10)
     else
-      # Display all jokes with pagination
       @jokes = Joke.order(created_at: :desc).page(params[:page]).per(10)
     end
   end
