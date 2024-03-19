@@ -1,3 +1,24 @@
 <h1>About This App</h1>
-<p>This application showcases a collection of jokes and facts, demonstrating the power of Ruby on Rails combined with ActiveRecord for web development.</p>
-<p>Data for jokes was generated using the Faker gem, while facts were imported from a curated CSV file.</p>
+<p>This application showcases a collection of jokes and facts, demonstrating the power of Ruby on Rails combined with ActiveRecord for web development. Data for jokes was generated using the Faker gem, while facts were imported from a curated CSV file.</p>
+
+<h2>Jokes Dataset:</h2>
+<ul>
+  <li><strong>Source:</strong> Generated using the Faker gem.</li>
+  <li><strong>Structure:</strong> Each entry in the dataset contains a setup and a punchline, making up the structure of a typical joke.</li>
+  <li><strong>Database Integration:</strong> In the database, these entries are stored in a table named <code>jokes</code>, with each joke having an <code>id</code> (primary key), <code>setup</code> (text), and <code>punchline</code> (text).</li>
+</ul>
+
+<h2>Facts Dataset:</h2>
+<ul>
+  <li><strong>Source:</strong> Curated facts imported from a <code>facts.csv</code> file.</li>
+  <li><strong>Structure:</strong> Each fact is a simple statement providing interesting or educational information.</li>
+  <li><strong>Database Integration:</strong> Facts are stored in a table called <code>facts</code>, where each fact has an <code>id</code> (primary key) and <code>fact</code> (text) as its columns.</li>
+</ul>
+
+<p>Integration and Relationship:</p>
+<p>To enhance organization and enable future categorization, both jokes and facts are related to a categories table through a <code>category_id</code> foreign key. This setup allows for the classification of jokes and facts into various categories, making it easier for users to find content of specific interest.</p>
+
+<!-- Placeholder for Image -->
+<!-- The actual <img> tag will be replaced with the generated image reference -->
+<img src="/images/databas ERD.png" alt="App Overview">
+

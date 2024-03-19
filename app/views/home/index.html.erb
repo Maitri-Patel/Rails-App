@@ -7,7 +7,7 @@
       <% @random_jokes.each do |joke| %>
         <div class="card shadow-sm mb-3">
           <div class="card-body">
-            <h5 class="card-title">Joke</h5>
+            <h5 class="card-title"></h5>
             <p class="card-text"><%= joke.setup %></p>
             <p class="card-text text-muted"><%= joke.punchline %></p>
           </div>
@@ -21,7 +21,7 @@
       <h2 class="mb-4">Random Facts</h2>
       <% @random_facts.each do |fact| %>
         <div class="card shadow-lg mb-3">
-          <div class="card-header">Did You Know?</div>
+          <div class="card-header"></div>
           <div class="card-body">
             <p class="card-text"><%= fact.fact %></p>
           </div>
