@@ -1,2 +1,7 @@
-<h1>Facts#show</h1>
-<p>Find me in app/views/facts/show.html.erb</p>
+<h2>Fact</h2>
+<p><%= @fact.fact %></p>
+
+<!-- Display category if exists -->
+<% if @fact.category %>
+  <p>Category: <%= @fact.category.name %></p>
+<% end %>

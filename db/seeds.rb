@@ -38,7 +38,7 @@ categories.each { |name| Category.find_or_create_by!(name: name) }
   Joke.create!(
     setup: Faker::TvShows::MichaelScott.quote,
     punchline: Faker::TvShows::MichaelScott.quote,
-    category: Category.order('RANDOM()').first # Randomly assign a category
+    category: Category.order('RANDOM()').first
   )
 end
 
@@ -47,6 +47,6 @@ facts_csv_path = Rails.root.join('lib', 'seeds', 'facts.csv')
 SmarterCSV.process(facts_csv_path).each do |row|
   Fact.create!(
     fact: row[:fact],
-    category: Category.order('RANDOM()').first # Randomly assign a category
+    category: Category.order('RANDOM()').first 
   )
 end

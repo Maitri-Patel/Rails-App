@@ -1,9 +1,14 @@
 <h1>Facts Collection</h1>
-<ul>
-  <% @facts.each do |fact| %>
-    <li>
-      <%= link_to fact.fact, fact_path(fact) %>
-    </li>
-  <% end %>
-</ul>
-<%= paginate @facts %>
+
+<% if @facts.any? %>
+  <ul>
+    <% @facts.each do |fact| %>
+      <li>
+        <%= link_to fact.fact, fact_path(fact) %>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate @facts %>
+<% else %>
+  <p>There are currently no facts available.</p>
+<% end %>
