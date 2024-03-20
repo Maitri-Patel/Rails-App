@@ -7,6 +7,18 @@ Rails.application.routes.draw do
   resources :facts, only: [:index, :show]
   resources :jokes, only: [:index, :show]
 
+  resources :categories do
+    resources :jokes, only: :show
+  end
+  
+  resources :jokes, only: [:index, :show] 
+
+  resources :categories, only: [:show] do
+    resources :facts, only: [:show]
+  end
+  
+  resources :facts, only: [:show] # If you want to
+
   # Health check route
   get "up" => "rails/health#show", as: :rails_health_check
 end

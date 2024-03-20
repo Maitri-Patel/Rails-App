@@ -3,5 +3,6 @@
 
 <!-- Display category if exists -->
 <% if @joke.category %>
-  <p>Category: <%= @joke.category.name %></p>
+  <p>Category: <%= link_to @joke.category.name, category_path(@joke.category) %></p>
 <% end %>
+

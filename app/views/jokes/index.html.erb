@@ -5,6 +5,7 @@
       <%= form_with(url: jokes_path, method: :get, local: true) do |form| %>
         <div class="input-group mb-3">
           <%= form.text_field :search, value: params[:search], placeholder: "Search jokes...", class: "form-control" %>
+          <%= form.collection_select :category_id, Category.order(:name), :id, :name, {include_blank: "All Categories"}, {class: "custom-select"} %>
           <div class="input-group-append">
             <%= form.submit "Search", class: "btn btn-outline-secondary" %>
           </div>
@@ -26,12 +27,10 @@
       </div>
     <% end %>
   </div>
-</div>
 
-<!-- Pagination Links -->
   <div class="row">
     <div class="col-12">
-      <%= paginate @jokes%>
+      <%= paginate @jokes %>
     </div>
   </div>
 </div>

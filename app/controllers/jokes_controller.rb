@@ -1,12 +1,16 @@
 class JokesController < ApplicationController
   def index
+    scope = Joke.all
+
     if params[:search].present?
-      # Apply the search filter before pagination
-      @jokes = Joke.where("setup LIKE ? OR punchline LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
-                   .page(params[:page]).per(10)
-    else
-      @jokes = Joke.order(created_at: :desc).page(params[:page]).per(10)
+      scope = scope.where("setup LIKE ? OR punchline LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
     end
+
+    if params[:category_id].present?
+      scope = scope.where(category_id: params[:category_id])
+    end
+
+    @jokes = scope.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show

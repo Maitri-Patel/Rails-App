@@ -2,6 +2,8 @@
 <p><%= @fact.fact %></p>
 
 <!-- Display category if exists -->
+
 <% if @fact.category %>
-  <p>Category: <%= @fact.category.name %></p>
+  <%= link_to "View Category", category_path(@fact.category, context: "facts") %>
 <% end %>
+
