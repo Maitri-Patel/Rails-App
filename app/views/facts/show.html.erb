@@ -1,11 +1,6 @@
 <h2>Fact</h2>
 <p><%= @fact.fact %></p>
 
-<!-- Display category if exists -->
-<!-- app/views/facts/show.html.erb -->
-<p><%= @fact.fact %></p>
-
 <% if @fact.category %>
-  <%= link_to "View Category", category_path(@fact.category, context: "facts") %>
+  <p>Category: <%= link_to @fact.category.name, category_path(@fact.category) %></p>
 <% end %>
-
