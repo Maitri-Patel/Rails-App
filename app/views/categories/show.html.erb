@@ -4,7 +4,7 @@
 <ul>
   <% @category.jokes.each do |joke| %>
     <li>
- 
+      <%= link_to joke.setup, joke_path(joke) %>
     </li>
   <% end %>
 </ul>
